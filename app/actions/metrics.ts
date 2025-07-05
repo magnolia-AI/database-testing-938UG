@@ -13,7 +13,7 @@ export async function getMetrics() {
         name: 'revenue',
       },
     });
-    const totalRevenue = totalRevenueResult._sum.value || 0;
+    const totalRevenue = totalRevenueResult._sum?.value || 0;
 
     // Fetch total users (count of unique users)
     const totalUsers = await prisma.user.count();
@@ -33,4 +33,5 @@ export async function getMetrics() {
     throw new Error('Failed to fetch metrics');
   }
 }
+
 
